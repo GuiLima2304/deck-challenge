@@ -1,5 +1,5 @@
 <div class="container text-center">
-  <new-tweet></new-tweet>
-  <tweets></tweets>
+  <new-tweet (emitter)="receiveTweet($event)"></new-tweet>
+  <tweets [tweetSaved]="tweetPosted"></tweets>
 </div>
 

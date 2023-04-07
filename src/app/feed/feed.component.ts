@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent {
+  public tweetPosted: string;
 
+  constructor() {
+    this.tweetPosted = '';
+  }
+
+  public receiveTweet(tweet: string) {
+    this.tweetPosted = tweet;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'tweets',
@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./tweets.component.css']
 })
 export class TweetsComponent {
+  @Input() tweetSaved: string = '';
+  public listTweets: Array<string> = [];
 
+  constructor(private ref: ChangeDetectorRef) {
+
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['tweetSaved'].currentValue && changes['tweetSaved'].currentValue) {
+         this.listTweets.push(this.tweetSaved);
+         this.tweetSaved = '';
+    }
+  }
 }

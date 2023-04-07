@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'new-tweet',
@@ -7,8 +7,14 @@ import { Component } from '@angular/core';
 })
 export class NewTweetComponent {
   public tweet: string;
+  @Output() emitter: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
+    this.tweet = '';
+  }
+
+  public saveTweet() {
+    this.emitter.emit(this.tweet);
     this.tweet = '';
   }
 }

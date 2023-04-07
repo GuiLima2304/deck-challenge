@@ -18,7 +18,10 @@
   <div class="create-tweet">
    <label>{{ tweet.length }}</label>
     <div class="buttons">
-      <button type="button" class="btn btn-primary" [disabled]="tweet === ''">Twettar</button>
+      <button type="button"
+      class="btn btn-primary"
+      [disabled]="tweet === ''"
+      (click)="saveTweet()">Twettar</button>
     </div>
   </div>
 </div>
