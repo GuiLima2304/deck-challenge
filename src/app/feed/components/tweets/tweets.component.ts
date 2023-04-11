@@ -15,8 +15,22 @@ export class TweetsComponent {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['tweetSaved'].currentValue && changes['tweetSaved'].currentValue) {
-         this.listTweets.push(this.tweetSaved);
-         this.tweetSaved = '';
+
+      if(localStorage.getItem("listTweets") && this.listTweets.length === 0) {
+        let listTweetsBefore =  JSON.parse(localStorage.getItem("listTweets") || '[]');
+
+        listTweetsBefore.forEach((element: string) => {
+          this.listTweets.push(element);
+        });
+      }
+      this.listTweets.push(this.tweetSaved);
+      localStorage.setItem("listTweets", JSON.stringify(this.listTweets))
+      this.tweetSaved = '';
     }
+  }
+
+
+  public getList(): any {
+      return JSON.parse(localStorage.getItem("listTweets") || '[]')
   }
 }
