@@ -1,7 +1,11 @@
+.all-new-tweet {
+  margin-top: 1%;
+}
+
 .new-tweet {
   display: flex;
   justify-content: center;
-  /* border: 1px solid gray; */
+  /* border: 1px solid #d3d3d3; */
 }
 
 .avatar {
@@ -15,5 +19,5 @@ textarea {
   height: 20vh;
   width: 50vh;
   border-radius: 10px;
-  border: none;
+  border: 1px solid #d3d3d3;
 }

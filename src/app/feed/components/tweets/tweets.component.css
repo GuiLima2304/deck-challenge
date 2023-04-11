@@ -1,0 +1,20 @@
+.all-tweets {
+  width: 50%;
+}
+
+.listTweets {
+  border: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 6px;
+  margin: 2%;
+  padding: 2%
+}
+
+.tweet {
+  white-space: normal;
+}
+
+.icon {
+  cursor: pointer;
+}
