@@ -13,6 +13,7 @@
 
 .tweet {
   white-space: normal;
+  line-break: anywhere;
 }
 
 .icon {
