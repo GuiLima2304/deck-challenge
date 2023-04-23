@@ -7,9 +7,11 @@ import { ChangeDetectorRef, Component, Input, SimpleChanges } from '@angular/cor
 })
 export class TweetsComponent {
   @Input() tweetSaved: string = '';
-  // public listTweets: Array<string> = [];
   public listTweets: Array<any> = [];
-  tweetSelecionado: any;
+  public tweetSelecionado: {id: string, tweet: string} = {
+    id: '',
+    tweet: ''
+  }
 
 
   constructor(private ref: ChangeDetectorRef) {
@@ -17,7 +19,7 @@ export class TweetsComponent {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes['tweetSaved'].currentValue && changes['tweetSaved'].currentValue) {
+    if(changes['tweetSaved'].currentValue) {
 
       if(localStorage.getItem("listTweets") && this.listTweets.length === 0) {
         let listTweetsBefore =  JSON.parse(localStorage.getItem("listTweets") || '[]');
